@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+      <!-- <input type="text" > -->
+    <div *ngFor="let article of ((contents | async)?.content) ?? []" class="col-6">
+      <a routerLink="/detail-movie/{{article.maPhim}}">{{article.maPhim}}</a>
+    </div>
+    <div class="col-6"></div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../toheading/toheading.component.scss"
+    ],
+    "names": [],
+    "file": "toheading.component.css"
+}
