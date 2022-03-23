@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <p *ngFor="let user of users$ | async">Tài khoản: {{ user.taiKhoan }}</p>
+      <p *ngFor="let user of users$ | async">Họ tên: {{ user.hoTen }}</p>
+    </div>
+    <div class="col-6">
+      <h2>Danh sách khoá học chưa ghi danh</h2>
+      <div *ngFor="let courseNone of noneApprovedCourses$ | async">
+        <span>{{ courseNone.tenKhoaHoc }}</span>
+        <button>GHi danh</button>
+      </div>
+      <h2>Danh sách khoá học chờ ghi danh</h2>
+      <div *ngFor="let course of waitingApprovedCourses$ | async">
+        <span>{{ course.tenKhoaHoc }}</span>
+        <button>Đăng ký</button>
+      </div>
+      <h2>Danh sách khoá học đã đăng ký</h2>
+      <div *ngFor="let courseApproed of approvedCourses$ | async">
+        <span>{{ courseApproed.tenKhoaHoc }}</span>
+        <button>Huỷ ghi danh</button>
+      </div>
+    </div>
+  </div>
+</div>
+// source of truth data

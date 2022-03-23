@@ -11,21 +11,21 @@ export class UserServeService {
 
   userUrl = 'http://movieapi.cyberlearn.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01'
 
-  private data$!: BehaviorSubject<UserResponse>
+  // private data$!: BehaviorSubject<UserResponse>
 
   fetchUserApi() {
-    return this.http.get(this.userUrl)
+    return this.http.get<UserResponse>(this.userUrl)
   }
 
-  userPipe() {
-    return this.fetchUserApi().pipe(tap(result => this.data$.next(result)))
-  }
+  // userPipe() {
+  //   return this.fetchUserApi().pipe(tap(result => this.data$.next(result)))
+  // }
 
-  get getDataUser(): Observable<UserResponse> {
-    if (!this.data$) {
-      this.data$ = new BehaviorSubject<UserResponse>({})
-      this.userPipe().subscribe()
-    }
-    return this.data$.asObservable()
-  }
+  // get getDataUser(): Observable<UserResponse> {
+  //   if (!this.data$) {
+  //     this.data$ = new BehaviorSubject<UserResponse>({})
+  //     this.userPipe().subscribe()
+  //   }
+  //   return this.data$.asObservable()
+  // }
 }

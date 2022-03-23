@@ -1,2 +1,2 @@
-<p *ngFor="let user of ((service.getDataUser| async)?.content ?? [])">user works!</p>
-<p *ngFor="let movie of ((service2.movieData| async)?.content ?? [])">{{movie.danhGia}}</p>
+<p *ngFor="let user of users$ | async">{{user.taiKhoan}}</p>
+<!-- <p *ngFor="let movie of ((service2.movieData| async)?.content ?? [])">{{movie.danhGia}}</p> -->

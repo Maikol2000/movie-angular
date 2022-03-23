@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div
+        class="bg-secondary text-light pl-3"
+        *ngFor="let course of listUser$ | async"
+      >
+        <p>{{ course.hoTen }}</p>
+        <p>{{ course.taiKhoan }}</p>
+        <p>{{ course.email }}</p>
+        <button routerLink="/register-detail/{{course.taiKhoan}}" class="btn btn-light">Ghi danh</button>
+        <hr />
+      </div>
+    </div>
+    <div class="col-6">
+      <div *ngFor="let course of courses$ | async">
+        <p>{{ course.tenKhoaHoc }}</p>
+        <p>{{ course.maKhoaHoc }}</p>
+        <img class="block" style="width: 100px;" src="{{ course.hinhAnh }}" alt="..." />
+        <button routerLink="/register-detail" class="btn btn-dark block">Registor</button>
+      </div>
+    </div>
+  </div>
+</div>

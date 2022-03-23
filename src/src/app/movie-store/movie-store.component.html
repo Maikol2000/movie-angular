@@ -1,0 +1,33 @@
+<div class="row mx-3 p-1">
+  <form class="form-inline col-6">
+    <input
+      class="form-control"
+      type="search"
+      placeholder="Search name"
+      aria-label="Search"
+      (keydown)="searchMovies($event.target)"
+    />
+  </form>
+  <form class="col-6" [formGroup]="movieForm">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" formControlName="name" name="name"/>
+    </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="tel" class="form-control" formControlName="phone" name="phone"/>
+    </div>
+    <button [disabled]="!movieForm.valid" (click)="addMovie()" type="submit" class="btn btn-outline-primary">Add</button>
+  </form>
+</div>
+
+<div *ngFor="let movie of movies$ | async">
+  <div class="mx-3 p-1 bg-info text-light row">
+    <div class="col-5">
+      <p>Name: {{ movie.name }}</p>
+      <p>Phone: {{ movie.phone }}</p>
+    </div>
+    <button class="btn btn-outline-danger mr-3" (click)="deleteMovie(movie)">Delete</button>
+  </div>
+  <hr />
+</div>

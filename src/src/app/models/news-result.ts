@@ -13,7 +13,7 @@ export interface Movie {
   hinhAnh?: string;
   hot?: boolean;
   maNhom?: string;
-  maPhim?: number;
+  maPhim: number;
   moTa?: string;
   ngayKhoiChieu?: string;
   sapChieu?: boolean;
@@ -22,9 +22,48 @@ export interface Movie {
 }
 
 export interface UserResponse {
-  content?: Users[];
+  content?: User[];
 }
 
-export interface Users {
-  taiKhoan?: string
+export interface User {
+  taiKhoan?: string;
+}
+
+export interface RegisterSubject {
+  taiKhoan?: string;
+  biDanh?: string;
+  hoTen?: string;
+}
+
+export interface ListUser {
+  taiKhoan?: string;
+  hoTen?: string;
+  email?: string;
+  soDt?: string;
+}
+
+export interface Courses {
+  maKhoaHoc?: string;
+  tenKhoaHoc?: string;
+  hinhAnh?: string;
+}
+
+export interface UserDetail {
+  taiKhoan?: string;
+  hoTen?: string;
+}
+
+export interface RegisterDetail {
+  maKhoaHoc?: string;
+  taiKhoan?: string;
+}
+
+export interface ListCourseApprovedResponse {
+  maKhoaHoc?: string
+  tenKhoaHoc?: string
+}
+
+export interface MovieItem {
+  name: string
+  phone: string
 }
