@@ -11,7 +11,6 @@ import { MoviesStore } from "./movie.store";
 })
 export class MovieStoreComponent implements OnInit {
   movieForm!: FormGroup;
-  movie = {}
   constructor(
     private movieStore: MoviesStore, // private readonly componentStore: ComponentStore<{ movie: Movie[] }>,
     private fb: FormBuilder

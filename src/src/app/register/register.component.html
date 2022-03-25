@@ -1,14 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
+      <input type="text" class="my-2" (keydown)="searchUser($event.target)" />
       <div
         class="bg-secondary text-light pl-3"
-        *ngFor="let course of listUser$ | async"
+        *ngFor="let user of userList$ | async"
       >
-        <p>{{ course.hoTen }}</p>
-        <p>{{ course.taiKhoan }}</p>
-        <p>{{ course.email }}</p>
-        <button routerLink="/register-detail/{{course.taiKhoan}}" class="btn btn-light">Ghi danh</button>
+        <p>{{ user.hoTen }}</p>
+        <p>{{ user.taiKhoan }}</p>
+        <p>{{ user.email }}</p>
+        <button
+          routerLink="/register-detail/{{ user.taiKhoan }}"
+          class="btn btn-light"
+        >
+          Ghi danh
+        </button>
         <hr />
       </div>
     </div>
@@ -16,8 +22,15 @@
       <div *ngFor="let course of courses$ | async">
         <p>{{ course.tenKhoaHoc }}</p>
         <p>{{ course.maKhoaHoc }}</p>
-        <img class="block" style="width: 100px;" src="{{ course.hinhAnh }}" alt="..." />
-        <button routerLink="/register-detail" class="btn btn-dark block">Registor</button>
+        <img
+          class="block"
+          style="width: 100px"
+          src="{{ course.hinhAnh }}"
+          alt="..."
+        />
+        <button routerLink="/register-detail" class="btn btn-dark block">
+          Register
+        </button>
       </div>
     </div>
   </div>

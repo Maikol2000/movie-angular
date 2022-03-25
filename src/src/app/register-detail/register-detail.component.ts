@@ -11,9 +11,11 @@ import { RegisterDetailService } from "./service/register-detail.service";
 })
 export class RegisterDetailComponent implements OnInit {
   users$ = new BehaviorSubject<UserDetail[]>([]);
-  approvedCourses$ = new BehaviorSubject<ListCourseApprovedResponse[]>([])
-  noneApprovedCourses$ = new BehaviorSubject<ListCourseApprovedResponse[]>([])
-  waitingApprovedCourses$ = new BehaviorSubject<ListCourseApprovedResponse[]>([])
+  approvedCourses$ = new BehaviorSubject<ListCourseApprovedResponse[]>([]);
+  noneApprovedCourses$ = new BehaviorSubject<ListCourseApprovedResponse[]>([]);
+  waitingApprovedCourses$ = new BehaviorSubject<ListCourseApprovedResponse[]>(
+    []
+  );
 
   constructor(
     public userService: RegisterDetailService,
@@ -25,8 +27,14 @@ export class RegisterDetailComponent implements OnInit {
     this.userService
       .fetchUserDetail(id)
       .subscribe((resp) => this.users$.next(resp));
-    this.userService.fetchListCourseApproved(id).subscribe(resp => this.approvedCourses$.next(resp))
-    this.userService.fetchCoursesNoneApproved(id).subscribe(resp => this.noneApprovedCourses$.next(resp))
-    this.userService.fetchCourseWaitApproved(id).subscribe(resp => this.waitingApprovedCourses$.next(resp))
+    this.userService
+      .fetchListCourseApproved(id)
+      .subscribe((resp) => this.approvedCourses$.next(resp));
+    this.userService
+      .fetchCoursesNoneApproved(id)
+      .subscribe((resp) => this.noneApprovedCourses$.next(resp));
+    this.userService
+      .fetchCourseWaitApproved(id)
+      .subscribe((resp) => this.waitingApprovedCourses$.next(resp));
   }
 }

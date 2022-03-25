@@ -14,6 +14,7 @@ import { RegisterComponent } from "./register/register.component";
 import { RegisterDetailComponent } from "./register-detail/register-detail.component";
 import { MovieStoreComponent } from "./movie-store/movie-store.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { RegisterStore } from "./register/register.store";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     MovieStoreComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
-  providers: [ComponentStore],
+  providers: [ComponentStore, RegisterStore],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

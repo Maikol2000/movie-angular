@@ -2,8 +2,9 @@ import { Injectable } from "@angular/core";
 import { ComponentStore } from "@ngrx/component-store";
 import { Observable } from "rxjs";
 import { MovieItem } from "../models/news-result";
+import { ServiceService } from "./service/service.service";
 
-export interface MovieState {
+interface MovieState {
   movies: MovieItem[];
   searchString: string;
   name: string;
@@ -11,7 +12,7 @@ export interface MovieState {
 
 @Injectable()
 export class MoviesStore extends ComponentStore<MovieState> {
-  constructor() {
+  constructor(private movieResponse: ServiceService) {
     super({
       movies: [
         {
@@ -93,8 +94,10 @@ export class MoviesStore extends ComponentStore<MovieState> {
       name: "",
     });
   }
+  
   // list movie
   movies$: Observable<MovieItem[]> = this.select((state) => state.movies);
+
   // filter movie
   filterMovies$: Observable<MovieItem[]> = this.select(
     ({ movies, searchString }) =>
@@ -104,6 +107,7 @@ export class MoviesStore extends ComponentStore<MovieState> {
           .includes(searchString.toLocaleLowerCase())
       )
   );
+
   //add movie
   addMovie = this.updater((state, newMovie: MovieItem) => ({
     ...state,

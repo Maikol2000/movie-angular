@@ -34,8 +34,7 @@ export interface RegisterSubject {
   biDanh?: string;
   hoTen?: string;
 }
-
-export interface ListUser {
+export interface User {
   taiKhoan?: string;
   hoTen?: string;
   email?: string;

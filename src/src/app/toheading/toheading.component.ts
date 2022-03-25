@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from '../models/news-result';
-import { NewsMovieService } from '../serve/news-movie.service';
+import { NewsMovieService } from './serve/news-movie.service';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({

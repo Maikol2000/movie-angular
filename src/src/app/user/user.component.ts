@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { User } from '../models/news-result';
-import { NewsMovieService } from '../serve/news-movie.service';
+import { NewsMovieService } from '../toheading/serve/news-movie.service';
 import { UserServeService } from './serve/user-serve.service';
 
 @Component({

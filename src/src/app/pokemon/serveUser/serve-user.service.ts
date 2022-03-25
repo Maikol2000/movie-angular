@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, tap, Observable } from 'rxjs';
-import { UserResponse } from '../models/news-result';
+import { UserResponse } from '../../models/news-result';
 
 @Injectable({
   providedIn: 'root',

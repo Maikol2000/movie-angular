@@ -1,8 +1,8 @@
-import { SlicePipe } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
-import { BehaviorSubject, filter, map } from "rxjs";
-import { Courses, ListUser } from "../models/news-result";
-import { RegisterService } from "./service/service.service";
+import { BehaviorSubject } from "rxjs";
+import { Courses } from "../models/news-result";
+import { RegisterStore } from "./register.store";
+import { RegisterService } from "./service/register.service";
 
 @Component({
   selector: "app-register",
@@ -10,17 +10,24 @@ import { RegisterService } from "./service/service.service";
   styleUrls: ["./register.component.scss"],
 })
 export class RegisterComponent implements OnInit {
-  listUser$ = new BehaviorSubject<ListUser[]>([]);
+  userList$ = this.registerStore.userList$;
   courses$ = new BehaviorSubject<Courses[]>([]);
-  constructor(public service: RegisterService) {}
 
-  ngOnInit(): void {
-    // this.service.fetchApi().subscribe((resp) => this.courses$.next(resp || []));
-    this.service
-      .fetchListUser()
-      .subscribe((result) => this.listUser$.next(result || []));
-    this.service
-      .fetchCourses()
-      .subscribe((resp) => this.courses$.next(resp || []));
+  constructor(
+    public service: RegisterService,
+    private registerStore: RegisterStore
+  ) {
+    this.searchUser(null);
   }
+
+  searchUser(target: EventTarget | null) {
+    if (target) {
+      let value = (target as HTMLInputElement).value;
+      return this.registerStore.getUserList(value);
+    }
+    return this.registerStore.getUserList(null);
+  }
+
+  ngOnInit(): void {}
+  // store.addUser()
 }

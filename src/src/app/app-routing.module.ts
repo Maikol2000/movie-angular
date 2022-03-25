@@ -14,8 +14,8 @@ const routes: Routes = [
   { path: "users", component: PokemonComponent },
   { path: "user", component: UserComponent },
   { path: "register-subject", component: RegisterComponent },
-  { path: "register-detail/:id", component: RegisterDetailComponent},
-  {path:"movie", component: MovieStoreComponent}
+  { path: "register-detail/:id", component: RegisterDetailComponent },
+  { path: "movie", component: MovieStoreComponent },
 ];
 
 @NgModule({
